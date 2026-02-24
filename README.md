@@ -288,8 +288,7 @@ Screenshot of:
 ---
 
 ## 2️⃣ Successful CI/CD Execution
-Screenshot of:
-GitHub Actions → All steps green
+![ci/cd](https://github.com/chinmayedm/mean-stack-devops/blob/main/Screenshot%202026-02-24%20at%2000.36.01.png?raw=true)
 
 ---
 
