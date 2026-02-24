@@ -32,7 +32,7 @@ jobs:
         uses: appleboy/ssh-action@v0.1.10
         with:
           host: ${{ secrets.EC2_HOST }}
-          username: ec2-user
+          username: ${{ secrets.EC2_USERNAME }}   # use secret instead of hardcoded
           key: ${{ secrets.EC2_SSH_KEY }}
           script: |
             cd mean-stack-devops
