@@ -10,17 +10,26 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+
       - name: Checkout Code
         uses: actions/checkout@v3
 
-      - name: Deploy to Server via SSH
+
+      - name: Deploy to EC2 via SSH
         uses: appleboy/ssh-action@v0.1.10
+
         with:
           host: ${{ secrets.EC2_HOST }}
           username: ${{ secrets.EC2_USER }}
-          password: ${{ secrets.EC2_PASSWORD }}
+          key: ${{ secrets.EC2_SSH_KEY }}
+          port: 22
+
           script: |
+
             cd /var/www/mean-app
+
             git pull origin main
+
             docker-compose down
+
             docker-compose up -d --build
