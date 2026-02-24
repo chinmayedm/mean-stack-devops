@@ -280,7 +280,7 @@ Application runs live in production container environment.
 # 📸 Screenshots
 
 ## 1️⃣ CI/CD Configuration
-Screenshot of:
+
 ```
 .github/workflows/deploy.yml
 ```
