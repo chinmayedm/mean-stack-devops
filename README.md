@@ -21,7 +21,7 @@ This setup simulates a real-world production CI/CD workflow.
 
 ### Deployment Flow
 
-![CI/CD Architecture]()
+![CI/CD Architecture](https://github.com/chinmayedm/mean-stack-devops/blob/main/ci:cd.png?raw=true)
 
 ---
 
