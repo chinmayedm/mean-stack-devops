@@ -6,37 +6,21 @@ on:
       - main
 
 jobs:
-  build-and-deploy:
+  deploy:
     runs-on: ubuntu-latest
 
     steps:
-      - name: ✅ Checkout Code
+      - name: Checkout Code
         uses: actions/checkout@v3
 
-      - name: 🐳 Login to Docker Hub
-        run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
-
-      - name: 🔨 Build Backend Image
-        run: docker build -t ${{ secrets.DOCKER_USERNAME }}/mean-backend:latest ./backend
-
-      - name: 🚀 Push Backend Image
-        run: docker push ${{ secrets.DOCKER_USERNAME }}/mean-backend:latest
-
-      - name: 🔨 Build Frontend Image
-        run: docker build -t ${{ secrets.DOCKER_USERNAME }}/mean-frontend:latest ./frontend
-
-      - name: 🚀 Push Frontend Image
-        run: docker push ${{ secrets.DOCKER_USERNAME }}/mean-frontend:latest
-
-      - name: Deploy to EC2
+      - name: Deploy to Server via SSH
         uses: appleboy/ssh-action@v0.1.10
         with:
-          host: ${{ secrets.EC2_HOST }}
-          username: ${{ secrets.EC2_USERNAME }}   # use secret instead of hardcoded
-          key: ${{ secrets.EC2_SSH_KEY }}
+          host: ${{ secrets.SERVER_HOST }}
+          username: ${{ secrets.SERVER_USER }}
+          password: ${{ secrets.SERVER_PASSWORD }}
           script: |
-            cd mean-stack-devops
+            cd /var/www/mean-app
             git pull origin main
-            docker-compose pull
-            docker-compose up -d --force-recreate
-            docker image prune -f
+            docker-compose down
+            docker-compose up -d --build
