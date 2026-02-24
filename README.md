@@ -21,21 +21,7 @@ This setup simulates a real-world production CI/CD workflow.
 
 ### Deployment Flow
 
-Developer  
-⬇  
-Git Push to `main`  
-⬇  
-GitHub Actions (CI/CD)  
-⬇  
-Build Docker Images  
-⬇  
-Push Images to Docker Hub  
-⬇  
-SSH into EC2  
-⬇  
-Docker Compose Pull & Restart  
-⬇  
-Live Application on Public IP  
+![CI/CD Architecture]()
 
 ---
 
