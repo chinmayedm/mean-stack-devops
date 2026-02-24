@@ -1,4 +1,4 @@
-name: CI/CD Pipeline
+name: CI/CD - Build and Deploy MEAN App
 
 on:
   push:
@@ -10,29 +10,33 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-
-      - name: Checkout Code
+      - name: Checkout
         uses: actions/checkout@v3
 
+      - name: Login Docker Hub
+        run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
+
+      - name: Build Backend
+        run: docker build -t ${{ secrets.DOCKER_USERNAME }}/mean-backend:latest ./backend
+
+      - name: Push Backend
+        run: docker push ${{ secrets.DOCKER_USERNAME }}/mean-backend:latest
+
+      - name: Build Frontend
+        run: docker build -t ${{ secrets.DOCKER_USERNAME }}/mean-frontend:latest ./frontend
+
+      - name: Push Frontend
+        run: docker push ${{ secrets.DOCKER_USERNAME }}/mean-frontend:latest
 
       - name: Deploy to EC2
-        uses: appleboy/ssh-action@v0.1.10
-
+        uses: appleboy/ssh-action@v1.0.0
         with:
           host: ${{ secrets.EC2_HOST }}
           username: ${{ secrets.EC2_USER }}
           key: ${{ secrets.EC2_SSH_KEY }}
-
           script: |
-
-            cd /var/www/mean-app
-
-            docker-compose down || true
-
-            docker rm -f mongodb || true
-
-            docker system prune -f || true
-
-            git pull origin main
-
-            docker-compose up -d --build
+            cd mean-stack-devops
+            docker-compose pull
+            docker-compose down
+            docker-compose up -d
+            docker image prune -f
