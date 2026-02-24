@@ -312,7 +312,7 @@ Browser displaying live application
 ---
 
 ## 6️⃣ Nginx Configuration
-Screenshot of:
+![nginx](https://github.com/chinmayedm/mean-stack-devops/blob/main/Screenshot%202026-02-24%20at%2019.29.33.png?raw=true)
 ```
 frontend/Dockerfile
 ```
