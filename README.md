@@ -298,7 +298,7 @@ Screenshot of:
 ---
 
 ## 4️⃣ EC2 Container Deployment
-Screenshot of:
+![deploy](https://github.com/chinmayedm/mean-stack-devops/blob/main/Screenshot%202026-02-24%20at%2019.25.45.png?raw=true)
 ```
 docker ps
 ```
@@ -306,8 +306,7 @@ docker ps
 ---
 
 ## 5️⃣ Working Application UI
-Screenshot of:
-Browser displaying live application
+![deploy](https://github.com/chinmayedm/mean-stack-devops/blob/main/Screenshot%202026-02-24%20at%2019.25.45.png?raw=true)
 
 ---
 
