@@ -293,10 +293,7 @@ Screenshot of:
 ---
 
 ## 3️⃣ Docker Image Build & Push
-Screenshot of:
-Docker Hub showing:
-- mean-backend:latest
-- mean-frontend:latest
+![Backend-Frontend](https://github.com/chinmayedm/mean-stack-devops/blob/main/Screenshot%202026-02-24%20at%2000.41.45.png?raw=true)
 
 ---
 
