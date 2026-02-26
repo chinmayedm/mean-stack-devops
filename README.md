@@ -361,9 +361,10 @@ The architecture is scalable and can be extended to:
 # 📌 Author
 
 **Chinmaye D M**
-# DevOps CI/CD Implementation | MEAN Stack Production Deployment
 
-# This project demonstrates a complete end-to-end DevOps workflow including 
+DevOps CI/CD Implementation | MEAN Stack Production Deployment
+
+This project demonstrates a complete end-to-end DevOps workflow including 
 containerization, CI/CD automation, and cloud deployment.
 
 🔗 [LinkedIn](https://www.linkedin.com/in/chinmayedm/) · [GitHub](https://github.com/chinmayedm)
