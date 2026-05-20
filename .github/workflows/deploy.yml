@@ -33,7 +33,6 @@ jobs:
 
       - name: Deploy to EC2
         uses: appleboy/ssh-action@v1.2.0
-
         with:
           host: ${{ secrets.EC2_HOST }}
           username: ${{ secrets.EC2_USERNAME }}
@@ -41,11 +40,8 @@ jobs:
           port: ${{ secrets.EC2_PORT }}
 
           script: |
-            cd mean-stack-devops
-            docker-compose pull
-            docker-compose down
-            docker-compose up -d
-            docker image prune -f
-            docker image prune -fr-compose down
-            docker-compose up -d
+            cd ~/mean-stack-devops
+            docker compose pull
+            docker compose down
+            docker compose up -d
             docker image prune -f
